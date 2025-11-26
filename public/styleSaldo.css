@@ -1,0 +1,124 @@
+/* ================================
+   ESTILO GERAL
+================================= */
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #a56bff, #d8c8ff);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+/* Container central */
+.container {
+    background: #ffffffcc;
+    backdrop-filter: blur(7px);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px #00000025;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animação suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Título */
+h2 {
+    text-align: center;
+    color: #5b21cc;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ================================
+   LINK VOLTAR
+================================= */
+.voltar {
+    color: #5a2bbf;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+}
+.voltar:hover {
+    color: #3b0f9e;
+}
+
+/* ================================
+   TABELA
+================================= */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* Tabela em si */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 15px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px #00000020;
+}
+
+/* Cabeçalho */
+th {
+    background: linear-gradient(135deg, #7a3cff, #a56bff);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* Linhas */
+td {
+    padding: 14px;
+    border-bottom: 1px solid #e8d9ff;
+    color: #4a3c7a;
+}
+
+/* Negrito do saldo */
+td strong {
+    color: #5c1ee6;
+}
+
+/* Efeito zebra */
+tr:nth-child(even) {
+    background: #f3ebff;
+}
+
+/* Hover nas linhas */
+tr:hover {
+    background: #e3d1ff;
+    transition: 0.2s;
+}
+
+/* Última linha sem borda */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* ================================
+   RESPONSIVIDADE
+================================= */
+@media (max-width: 600px) {
+    table {
+        font-size: 13px;
+    }
+    
+    td, th {
+        padding: 10px;
+    }
+}

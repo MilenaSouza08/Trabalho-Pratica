@@ -1,0 +1,81 @@
+/* ======= FUNDO DO MENU (diferente do login) ======= */
+.menu-page {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #ebe0ff; /* roxo clarinho suave */
+    font-family: 'Segoe UI', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ======= CONTAINER DO MENU ======= */
+.menu-container {
+    background: white;
+    padding: 35px 45px;
+    width: 380px;
+    border-radius: 25px;
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(120, 0, 180, 0.15);
+    border: 2px solid #d8c2ff; /* borda roxinha suave */
+}
+
+/* ======= TÍTULO ======= */
+.menu-container h1 {
+    color: #5d009a;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* ======= LINKS DO MENU (botões brancos estilosos) ======= */
+.menu-container a {
+    display: block;
+    background: #ffffff;
+    border: 2px solid #6e2ae6;
+    color: #6e2ae6;
+
+    padding: 12px 0;
+    border-radius: 12px;
+    margin: 12px 0;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+/* Hover */
+.menu-container a:hover {
+    background: #6e2ae6;
+    color: #ffffff;
+    transform: scale(1.03);
+}
+
+/* ======= BOTÃO DE SAIR ======= */
+.menu-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 25px;
+
+    background: #ff3a57;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+/* Hover botão de sair */
+.menu-container button:hover {
+    background: #d10029;
+    transform: scale(1.03);
+}

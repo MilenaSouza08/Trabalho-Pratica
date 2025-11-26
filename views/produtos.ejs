@@ -28,8 +28,6 @@
                     <!-- Input para nome do produto (obrigatório) -->
                     <section><input type="text" name="nome" placeholder="Nome do Produto *" required></section>
                     
-                    <!-- Input para código interno (obrigatório e único) -->
-                    <section><input type="text" name="codigo_interno" placeholder="Código Interno *" required></section>
                     
                     <!-- Select para escolher a categoria -->
                     <section>
@@ -54,21 +52,9 @@
                     <!-- Input para estoque mínimo -->
                     <section><input type="number" name="estoque_minimo" placeholder="Estoque Mínimo" min="0"></section>
                     
-                    <!-- Input para voltagem do produto -->
-                    <section><input type="text" name="voltagem" placeholder="Voltagem"></section>
-                    
-                    <!-- Input para cor do produto -->
-                    <section><input type="text" name="cor" placeholder="Cor"></section>
                 </section>
                 
                 <!-- Terceira linha de inputs -->
-                <section class="form-row">
-                    <!-- Input para peso em kg (número decimal) -->
-                    <section><input type="number" name="peso" placeholder="Peso (kg)" step="0.01" min="0"></section>
-                    
-                    <!-- Input para material do produto -->
-                    <section><input type="text" name="material" placeholder="Material"></section>
-                    
                     <!-- Input para descrição -->
                     <section><input type="text" name="descricao" placeholder="Descrição"></section>
                 </section>
@@ -92,16 +78,11 @@
                     <th>Ações</th>     <!-- Botões editar/excluir -->
                     <th>ID</th>        <!-- ID do produto -->
                     <th>Nome</th>      <!-- Nome do produto -->
-                    <th>Código</th>    <!-- Código interno -->
                     <th>Categoria</th> <!-- Categoria do produto -->
                     <th>Fabricante</th><!-- Fabricante -->
                     <th>Preço</th>     <!-- Preço de venda -->
                     <th>Estoque Atual</th> <!-- Saldo atual -->
                     <th>Estoque Mínimo</th><!-- Mínimo permitido -->
-                    <th>Voltagem</th>  <!-- Voltagem -->
-                    <th>Cor</th>       <!-- Cor -->
-                    <th>Peso (kg)</th> <!-- Peso -->
-                    <th>Material</th>  <!-- Material -->
                     <th>Descrição</th> <!-- Descrição -->
                 </tr>
                 
@@ -127,16 +108,11 @@
                         <!-- Dados do produto em cada coluna -->
                         <td><%= prod.idproduto %></td>
                         <td><%= prod.nome %></td>
-                        <td><%= prod.codigo_interno %></td>
                         <td><%= prod.categoria_nome || '-' %></td> <!-- Ou '-' se vazio -->
                         <td><%= prod.fabricante || '-' %></td>
                         <td>R$ <%= parseFloat(prod.preco_venda).toFixed(2) %></td> <!-- Formata como moeda -->
                         <td><%= prod.estoque_atual || 0 %></td> <!-- Ou 0 se vazio -->
                         <td><%= prod.estoque_minimo %></td>
-                        <td><%= prod.voltagem || '-' %></td>
-                        <td><%= prod.cor || '-' %></td>
-                        <td><%= prod.peso || '-' %></td>
-                        <td><%= prod.material || '-' %></td>
                         <td><%= prod.descricao || '-' %></td>
                     </tr>
                 <% }) %>

@@ -23,11 +23,6 @@
                     <input type="text" name="nome" value="<%= produto.nome %>" required>
                 </section>
                 
-                <!-- Label + Input para código interno (obrigatório) -->
-                <section>
-                    <label>Código Interno *</label>
-                    <input type="text" name="codigo_interno" value="<%= produto.codigo_interno %>" required>
-                </section>
             </section>
 
             <!-- Segunda linha: Categoria e Fabricante -->
@@ -66,36 +61,6 @@
                 <section>
                     <label>Estoque Mínimo</label>
                     <input type="number" name="estoque_minimo" value="<%= produto.estoque_minimo %>" min="0">
-                </section>
-            </section>
-
-            <!-- Quarta linha: Voltagem, Cor e Peso -->
-            <section class="form-row">
-                <!-- Input para voltagem -->
-                <section>
-                    <label>Voltagem</label>
-                    <input type="text" name="voltagem" value="<%= produto.voltagem || '' %>">
-                </section>
-                
-                <!-- Input para cor -->
-                <section>
-                    <label>Cor</label>
-                    <input type="text" name="cor" value="<%= produto.cor || '' %>">
-                </section>
-                
-                <!-- Input para peso em kg -->
-                <section>
-                    <label>Peso (kg)</label>
-                    <input type="number" name="peso" value="<%= produto.peso || '' %>" step="0.01" min="0">
-                </section>
-            </section>
-
-            <!-- Quinta linha: Material e Descrição -->
-            <section class="form-row">
-                <!-- Input para material -->
-                <section>
-                    <label>Material</label>
-                    <input type="text" name="material" value="<%= produto.material || '' %>">
                 </section>
             </section>
 
