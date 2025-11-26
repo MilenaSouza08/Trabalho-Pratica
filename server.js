@@ -14,7 +14,7 @@ const PORT = 3000;
 const client = new Client({
     user: 'postgres',              
     host: 'localhost',             
-    database: 'tableProjeto1ESJ',  
+    database: 'tabelaPratica',  
     password: 'senai',             
     port: 5432,                    
 });
