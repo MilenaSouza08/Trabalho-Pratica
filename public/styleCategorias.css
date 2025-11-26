@@ -1,0 +1,158 @@
+/* ======= FUNDO GERAL ======= */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #b57bff 0%, #9a63ff 40%, #cfa3ff 100%);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+/* ======= CONTAINER PRINCIPAL ======= */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffffdd;
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(80, 0, 150, 0.2);
+}
+
+/* ======= VOLTAR ======= */
+.voltar {
+    text-decoration: none;
+    color: white;
+    background: #7a29ff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.voltar:hover {
+    background: #5c13e6;
+}
+
+/* ======= TÍTULOS ======= */
+h2 {
+    text-align: center;
+    color: #5a00cc;
+    margin-top: 10px;
+}
+
+h3 {
+    color: #7200e6;
+    margin-bottom: 10px;
+}
+
+/* ======= FORMULÁRIO ======= */
+.form-section {
+    background: #faf6ff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 2px solid #d7baff;
+}
+
+.form-section input,
+.form-section textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border: 2px solid #b78cff;
+    background: #ffffff;
+    outline: none;
+    resize: none;
+    transition: 0.2s;
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+    border-color: #8e53ff;
+}
+
+/* Botão adicionar */
+.form-section button {
+    width: 100%;
+    padding: 12px;
+    background: #7b30ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.25s;
+}
+
+.form-section button:hover {
+    background: #6413ff;
+}
+
+/* ======= ERRO ======= */
+.error {
+    color: #ff2b2b;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* ======= TABELA ======= */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: #7b30ff;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ======= AÇÕES ======= */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Editar */
+.action-buttons button:not(.btn-danger) {
+    background: #7a29ff;
+    color: white;
+}
+
+.action-buttons button:not(.btn-danger):hover {
+    background: #5c13e6;
+}
+
+/* Excluir */
+.btn-danger {
+    background: #ff3b3b;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #d40000;
+}
