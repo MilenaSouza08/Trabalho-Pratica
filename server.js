@@ -137,9 +137,8 @@ app.get('/produtos', requireLogin, async (req, res) => {
     try {
         // Consulta que junta dados de produto, categoria e saldos
         const result = await client.query(`
-            SELECT p.idproduto, p.nome, p.codigo_interno, p.idcategoria, 
-                   p.fabricante, p.preco_venda, p.estoque_minimo, 
-                   p.voltagem, p.cor, p.peso, p.material, p.descricao,
+            SELECT p.idproduto, p.nome, p.idcategoria, 
+                   p.fabricante, p.preco_venda, p.estoque_minimo, p.descricao,
                    c.nome as categoria_nome,
                    s.saldo as estoque_atual
             FROM produto p
@@ -168,12 +167,12 @@ app.get('/produtos', requireLogin, async (req, res) => {
 // Rota POST /produtos: cadastra um novo produto
 app.post('/produtos', requireLogin, async (req, res) => {
     // Extrai dados do formulário
-    const { nome, codigo_interno, idcategoria, fabricante, preco_venda, 
-            estoque_minimo, voltagem, cor, peso, material, descricao } = req.body;
+    const { nome, idcategoria, fabricante, preco_venda, 
+            estoque_minimo,descricao } = req.body;
     
     // Validação: nome e código são obrigatórios
-    if (!nome || !codigo_interno) {
-        req.session.produtoError = 'Nome e código interno são obrigatórios.';
+    if (!nome) {
+        req.session.produtoError = 'Nome é obrigatório.';
         return res.redirect('/produtos'); // Se der erro, não funciona e volta 
     }
     
@@ -182,12 +181,11 @@ app.post('/produtos', requireLogin, async (req, res) => {
     try {
         // Insere o novo produto na tabela
         await client.query(
-            `INSERT INTO produto (nome, codigo_interno, idcategoria, fabricante, preco_venda, 
-                                 estoque_minimo, voltagem, cor, peso, material, descricao) 
-             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`, // Cada coluna tem um valor (1, 2, 3...)
-            [nome, codigo_interno, idcategoria || null, fabricante || null, preco_venda || 0, 
-             estoque_minimo || 0, voltagem || null, cor || null, peso || null, 
-             material || null, descricao || null] // Valores do formulário (ou null/0 se vazio)
+            `INSERT INTO produto (nome, idcategoria, fabricante, preco_venda, 
+                                 estoque_minimo, descricao) 
+             VALUES ($1, $2, $3, $4, $5, $6)`, // Cada coluna tem um valor (1, 2, 3...)
+            [nome, idcategoria || null, fabricante || null, preco_venda || 0, 
+             estoque_minimo || 0, descricao || null] // Valores do formulário (ou null/0 se vazio)
         );
         
         // Confirma a transação (salva todas as mudanças)
@@ -248,26 +246,24 @@ app.post('/produtos/atualizar/:idp', requireLogin, async (req, res) => {
     const { idp } = req.params; // ID do produto
     
     // Extrai dados do formulário
-    const { nome, codigo_interno, idcategoria, fabricante, preco_venda, 
-            estoque_minimo, voltagem, cor, peso, material, descricao } = req.body;
+    const { nome, idcategoria, fabricante, preco_venda, 
+            estoque_minimo, descricao } = req.body;
     
     // Validação
-    if (!nome || !codigo_interno) {
-        req.session.produtoError = 'Nome e código interno são obrigatórios.';
+    if (!nome) {
+        req.session.produtoError = 'Nome é obrigatório.';
         return res.redirect('/produtos');
     }
     
     try {
         // Atualiza o produto no banco de dados
         await client.query(
-            `UPDATE produto SET nome = $1, codigo_interno = $2, idcategoria = $3, 
-                              fabricante = $4, preco_venda = $5, estoque_minimo = $6, 
-                              voltagem = $7, cor = $8, peso = $9, material = $10, 
-                              descricao = $11 
-             WHERE idproduto = $12`,
-            [nome, codigo_interno, idcategoria || null, fabricante || null, 
-             preco_venda || 0, estoque_minimo || 0, voltagem || null, cor || null, 
-             peso || null, material || null, descricao || null, idp]
+            `UPDATE produto SET nome = $1,  $2, idcategoria = $3, 
+                              fabricante = $4, preco_venda = $5, estoque_minimo = $6,
+                              descricao = $7 
+             WHERE idproduto = $8`,
+            [nome, idcategoria || null, fabricante || null, 
+             preco_venda || 0, estoque_minimo || 0, descricao || null, idp]
         );
         res.redirect('/produtos'); // Volta para lista
     } catch (err) {
