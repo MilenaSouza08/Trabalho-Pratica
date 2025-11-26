@@ -16,7 +16,7 @@ const client = new Client({
     host: 'localhost',             
     database: 'tabelaPratica',  
     password: 'senai',             
-    port: 5434,                    
+    port: 5432,                    
 });
 
 // Conecta ao banco de dados e exibe mensagem de sucesso ou erro
