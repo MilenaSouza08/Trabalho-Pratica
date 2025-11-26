@@ -1,0 +1,72 @@
+/* Fundo com degradê roxo */
+body.login-page {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #b57bff 0%, #9a63ff 40%, #cfa3ff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Caixa de login */
+.login-box {
+    background: #ffffffcc;
+    backdrop-filter: blur(10px);
+    padding: 40px 35px;
+    border-radius: 20px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(80, 0, 160, 0.3);
+}
+
+/* Título */
+.login-box h2 {
+    color: #7200e6;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Inputs */
+.login-box input {
+    width: 80%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 2px solid #b78cff;
+    background: #faf6ff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.login-box input:focus {
+    border-color: #8e53ff;
+    background: #ffffff;
+}
+
+/* Botão */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #7b30ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.login-box button:hover {
+    background: #6413ff;
+}
+
+/* Mensagem de erro */
+.error {
+    margin-top: 15px;
+    color: #ff2b2b;
+    font-weight: bold;
+}
