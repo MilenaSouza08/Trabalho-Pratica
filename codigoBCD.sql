@@ -23,14 +23,9 @@ CREATE TABLE categoria (
 CREATE TABLE produto (
     idproduto SERIAL PRIMARY KEY,
     nome VARCHAR(150) NOT NULL,
-    codigo_interno VARCHAR(50) UNIQUE NOT NULL,
     idcategoria INTEGER REFERENCES categoria(idcategoria),
     fabricante VARCHAR(100),
     preco_venda NUMERIC(10,2) DEFAULT 0,
-    voltagem VARCHAR(10),
-    cor VARCHAR(50),
-    peso NUMERIC(10,2),
-    material VARCHAR(100),
     descricao VARCHAR(500),
     estoque_minimo INTEGER DEFAULT 0
 );
@@ -62,28 +57,49 @@ CREATE TABLE movimento_estoque (
 
 -- Usuário padrão
 INSERT INTO usuarios (login, nome, senha) VALUES
-('aluno', 'Aluno Teste', '12345');
+('milena', 'Milena Oliveira', '1234'),
+('admin', 'Administrador do Sistema', 'admin123'),
+('luiz', 'Luiz ALves', 'senha123');
+
 
 -- Categorias
 INSERT INTO categoria (nome, descricao) VALUES
-('Notebook', 'Computadores portáteis de diferentes marcas e configurações'),
-('Mouse', 'Dispositivos de entrada com fio ou sem fio'),
-('HD Externo', 'Dispositivos de armazenamento portáteis');
+('Bebidas', 'Refrigerantes, sucos e bebidas em geral'),
+('Limpeza', 'Produtos de limpeza doméstica'),
+('Higiene', 'Itens de uso pessoal'),
+('Alimentos', 'Mantimentos e produtos alimentícios');
+
 
 -- Produtos
-INSERT INTO produto (nome, codigo_interno, idcategoria, fabricante, preco_venda, voltagem, cor, peso, material, descricao, estoque_minimo) VALUES
-('Notebook Dell Inspiron 15', 'NTB001', 1, 'Dell', 3500.00, 'Bivolt', 'Prata', 1.8, 'Alumínio', 'Notebook com tela de 15,6", ideal para uso doméstico e profissional', 2),
-('Mouse Logitech M170', 'MOU001', 2, 'Logitech', 85.00, NULL, 'Preto', 0.09, 'Plástico', 'Mouse sem fio com receptor USB', 5),
-('HD Externo Seagate 1TB', 'HDX001', 3, 'Seagate', 420.00, 'Bivolt', 'Preto', 0.25, 'Plástico', 'HD externo portátil de 1TB com conexão USB 3.0', 3);
+INSERT INTO produto (nome, idcategoria, fabricante, preco_venda, descricao, estoque_minimo) VALUES
+('Coca-Cola 2L', 1, 'Coca-Cola Company', 8.50, 'Refrigerante sabor cola', 10),
+('Sabão em Pó 1kg', 2, 'OMO', 12.90, 'Sabão em pó para roupas', 5),
+('Shampoo 300ml', 3, 'Pantene', 15.00, 'Shampoo para cabelo liso', 8),
+('Arroz Tipo 1 - 5kg', 4, 'Tio João', 22.00, 'Arroz branco tipo 1', 6),
+('Suco de Laranja 1L', 1, 'Del Valle', 6.20, 'Suco natural de laranja', 10);
 
 -- Saldos (valores iniciais)
 INSERT INTO saldos (idproduto, saldo) VALUES
-(1, 5),
-(2, 12),
-(3, 8);
+(1, 30),
+(2, 15),
+(3, 40),
+(4, 20),
+(5, 25);
 
 -- Movimentos iniciais		
 INSERT INTO movimento_estoque (idproduto, tipo, quantidade, observacao) VALUES
-(1, 'E', 5, 'Entrada inicial - Notebook Dell'),
-(2, 'E', 12, 'Entrada inicial - Mouse Logitech'),
-(3, 'E', 8, 'Entrada inicial - HD Externo Seagate');
+(1, 'E', 50, 'Compra inicial'),
+(1, 'S', 20, 'Venda no caixa'),
+(2, 'E', 30, 'Reposição de estoque'),
+(3, 'S', 10, 'Venda online'),
+(4, 'E', 40, 'Entrega do fornecedor'),
+(5, 'S', 15, 'Consumo interno'),
+(5, 'E', 20, 'Reposição semanal');
+
+select * from produto
+
+DROP TABLE movimento_estoque 
+DROP TABLE  saldos 
+DROP TABLE  produto 
+DROP TABLE  categoria 
+DROP TABLE  usuarios 

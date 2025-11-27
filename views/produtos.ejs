@@ -17,52 +17,38 @@
 
         <h2>📦 Cadastro de Produtos</h2>
         
-        <!-- Seção de formulário para adicionar novo produto -->
-        <section class="form-section">
-            <h3>Novo Produto</h3>
-            
-            <!-- Formulário que envia dados via POST para /produtos -->
-            <form action="/produtos" method="POST">
-                <!-- Primeira linha de inputs -->
-                <section class="form-row">
-                    <!-- Input para nome do produto (obrigatório) -->
-                    <section><input type="text" name="nome" placeholder="Nome do Produto *" required></section>
-                    
-                    
-                    <!-- Select para escolher a categoria -->
-                    <section>
-                        <select name="idcategoria">
-                            <option value="">Categoria</option>
-                            <!-- Loopa pelas categorias do servidor e cria opções -->
-                            <% categorias.forEach(c => { %>
-                                <option value="<%= c.idcategoria %>"><%= c.nome %></option>
-                            <% }) %>
-                        </select>
-                    </section>
-                    
-                    <!-- Input para nome do fabricante -->
-                    <section><input type="text" name="fabricante" placeholder="Fabricante"></section>
-                </section>
-                
-                <!-- Segunda linha de inputs -->
-                <section class="form-row">
-                    <!-- Input para preço de venda (número decimal) -->
-                    <section><input type="number" name="preco_venda" placeholder="Preço de Venda" step="0.01" min="0"></section>
-                    
-                    <!-- Input para estoque mínimo -->
-                    <section><input type="number" name="estoque_minimo" placeholder="Estoque Mínimo" min="0"></section>
-                    
-                </section>
-                
-                <!-- Terceira linha de inputs -->
-                    <!-- Input para descrição -->
-                    <section><input type="text" name="descricao" placeholder="Descrição"></section>
-                </section>
-                
-                <!-- Botão para enviar o formulário -->
-                <button type="submit">✅ Adicionar Produto</button>
-            </form>
+       <section class="form-section">
+    <h3>Novo Produto</h3>
+    
+    <form action="/produtos" method="POST">
+        
+        <section class="form-row">
+            <section><input type="text" name="nome" placeholder="Nome do Produto *" required></section>
+
+            <section>
+                <select name="idcategoria">
+                    <option value="">Categoria</option>
+                    <% categorias.forEach(c => { %>
+                        <option value="<%= c.idcategoria %>"><%= c.nome %></option>
+                    <% }) %>
+                </select>
+            </section>
+
+            <section><input type="text" name="fabricante" placeholder="Fabricante"></section>
         </section>
+
+        <section class="form-row">
+            <section><input type="number" name="preco_venda" placeholder="Preço de Venda" step="0.01"></section>
+            <section><input type="number" name="estoque_minimo" placeholder="Estoque Mínimo"></section>
+        </section>
+
+        <section>
+            <input type="text" name="descricao" placeholder="Descrição">
+        </section>
+        
+        <button type="submit">Adicionar Produto</button>
+    </form>
+</section>
 
         <!-- Se houver erro, exibe a mensagem de erro -->
         <% if (error) { %>
